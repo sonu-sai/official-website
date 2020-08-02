@@ -64,6 +64,8 @@ export default {
       text-align: justify;
       display:flex;
     }
-    
   }
+  .description img {
+      max-width: 100%;
+    }
 </style>

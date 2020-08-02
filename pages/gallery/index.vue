@@ -4,12 +4,12 @@
     <h1 class="heading">
       Gallery
     </h1>
-    <section v-for="ga in gallery" :key="ga.title" class="allth">
+    <section v-for="ga in gallery.slice().reverse()" :key="ga.title" class="allth">
       <h4 class="title">
         {{ ga.title }}
       </h4>
       <div class="allimg row">
-        <div v-for="im in ga.images" :key="im" class="col s12 m4 l3 img-wrapper">
+        <div v-for="im in ga.images" :key="im" class="col s12 m4 l4 img-wrapper">
           <img :src="im" class="img">
         </div>
       </div>
@@ -77,8 +77,10 @@ export default {
       padding: 10px;
 
       .img{
+        height: 200px;
         display: inline-block;
         width: 100%;
+        object-fit: cover;
         /*box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);*/
         border-radius: 5px;
         transition: box-shadow 0.25s ease-in-out;
@@ -89,6 +91,9 @@ export default {
         &:hover {
           box-shadow: 0 0 2px rgba(100, 100, 100, 0.5);
         }
+      }
+      @media screen and (min-width: 600px) {
+        .img {height: 200px;}
       }
     }
   }
